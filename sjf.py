@@ -2,6 +2,8 @@ def sjf_print(pro):
     n=len(pro)
     time=0
     i=0
+    total_tat=0
+    total_wt=0
     completed=[False]*n
     scheduled=[]
     while i<n:
@@ -28,6 +30,12 @@ def sjf_print(pro):
     for p in scheduled:
         print(p['pid'],"\t",p['arrival'],"\t",p['burst'],"\t",
               p['comp_time'],"\t",p['ta_time'],"\t",p['waiting_time'])
+        total_tat+= p['ta_time']
+        total_wt+= p['waiting_time']
+    avg_tat= total_tat / n
+    avg_wt= total_wt / n
+    print("Average Turnaround Time:", avg_tat)
+    print("Average Waiting Time:", avg_wt)
         
 
 processes=[
