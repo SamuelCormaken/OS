@@ -36,8 +36,6 @@ def sjf_print(pro):
     avg_wt= total_wt / n
     print("Average Turnaround Time:", avg_tat)
     print("Average Waiting Time:", avg_wt)
-        
-
 processes=[
      {'pid': 'P1', 'arrival': 0, 'burst': 3},
      {'pid': 'P2', 'arrival': 1, 'burst': 2},
@@ -45,5 +43,4 @@ processes=[
      {'pid': 'P4', 'arrival': 3, 'burst': 4},
     {'pid': 'P5', 'arrival': 0, 'burst': 2},
 ]
-
 sjf_print(processes)
