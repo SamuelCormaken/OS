@@ -8,11 +8,11 @@ def round_robin(pid, arrival, burst, quantum):
     completion_time = [0] * n  
     time = 0
     queue = deque()
-    visited = [False] * n
+    queued = [False] * n
     for i in range(n):
         if arrival[i] == 0:
             queue.append(i)
-            visited[i] = True
+            queued[i] = True
     while queue:
         i = queue.popleft()
         if remaining_bt[i] > quantum:
@@ -25,9 +25,9 @@ def round_robin(pid, arrival, burst, quantum):
             complete[i] = True
             completion_time[i] = time  
         for j in range(n):
-            if visited[j]==False and arrival[j] <= time:
+            if queued[j]==False and arrival[j] <= time:
                 queue.append(j)
-                visited[j] = True
+                queued[j] = True
         if complete[i]==False:
             queue.append(i)
     for i in range(n):
